@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Sigmar+One&display=swap');
+
 body {
   margin: 0;
   padding: 0;
@@ -36,4 +38,9 @@ main {
 
 header h1 {
   text-align: center;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
 }

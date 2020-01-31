@@ -1,4 +1,18 @@
 import React, { useState, useEffect } from "react";
+import CharacterCard from "./CharacterCard.js";
+import styled from "styled-components";
+
+const SearchDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 25%;
+`;
+
+const SearchContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 export default function SearchForm(props) {
   console.log(props.characters)
@@ -22,10 +36,11 @@ export default function SearchForm(props) {
 
     setSearchResults(results);
 
-  }, [searchCharacters]);
+  }, [searchCharacters, props.characters]);
 
   return (
-    <section className="search-form">
+    <SearchContainer>
+    <SearchDiv>
       <input
           type="text"
           placeholder="Search"
@@ -33,12 +48,13 @@ export default function SearchForm(props) {
           onChange={handleChange}
         />
 
-        <ul>
-          {searchResults.map(name => (
-            <li>{name}</li>
-          ))}
-        </ul>
+        
+        {searchResults.map(name => {
+          return <CharacterCard key={name} name={name} />
+        })}
+        
 
-    </section>
+    </SearchDiv>
+    </SearchContainer>
   );
 }
