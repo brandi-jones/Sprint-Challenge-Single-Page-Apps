@@ -25,12 +25,6 @@ export default function CharacterList() {
     <>
     
     <SearchForm characters={characters}/>
-
-    {/* <section className="character-list">
-      {characters.map(character => {
-        return <CharacterCard key={character.name} character={character} />
-      })}
-    </section> */}
     </>
   );
 }
