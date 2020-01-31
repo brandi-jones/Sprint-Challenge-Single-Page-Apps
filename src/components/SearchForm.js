@@ -2,15 +2,23 @@ import React, { useState, useEffect } from "react";
 import CharacterCard from "./CharacterCard.js";
 import styled from "styled-components";
 
-const SearchDiv = styled.div`
+const SearchInputDiv = styled.div`
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  width: 25%;
+  font-family: 'Sigmar One', cursive;
+  font-size: 1.5rem;
+  
 `;
 
 const SearchContainer = styled.div`
+  margin: 3rem 10rem 3rem 10rem;
   display: flex;
+  flex-direction: column;
+`;
+
+const SearchResultsDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 `;
 
@@ -40,21 +48,24 @@ export default function SearchForm(props) {
 
   return (
     <SearchContainer>
-    <SearchDiv>
-      <input
-          type="text"
-          placeholder="Search"
-          value={searchCharacters}
-          onChange={handleChange}
-        />
 
-        
-        {searchResults.map(name => {
-          return <CharacterCard key={name} name={name} />
-        })}
-        
+      <SearchInputDiv>
+        <label htmlFor="search">Search for Characters:</label>
+        <input
+            name="search"
+            type="text"
+            value={searchCharacters}
+            onChange={handleChange}
+          />
+      </SearchInputDiv>
+          
+      <SearchResultsDiv>
+          {searchResults.map(name => {
+            return <CharacterCard key={name} name={name} />
+          })}
+      </SearchResultsDiv>
 
-    </SearchDiv>
+   
     </SearchContainer>
   );
 }

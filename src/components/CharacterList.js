@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import CharacterCard from "./CharacterCard.js";
 import SearchForm from "./SearchForm.js";
 
 export default function CharacterList() {
@@ -23,7 +22,6 @@ export default function CharacterList() {
 
   return (
     <>
-    
     <SearchForm characters={characters}/>
     </>
   );
